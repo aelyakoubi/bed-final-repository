@@ -1,145 +1,57 @@
 import { PrismaClient } from "@prisma/client";
+import userData from "../src/data/users.json" assert { type: "json" };
+import amenityData from "../src/data/amenities.json" assert { type: "json" };
+import reviewData from "../src/data/reviews.json" assert { type: "json" };
+import propertyData from "../src/data/properties.json" assert { type: "json" };
+import bookingData from "../src/data/bookings.json" assert { type: "json" };
+import hostData from "../src/data/hosts.json" assert { type: "json" };
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({ log: ["query", "info", "warn", "error"] });
 
 async function seed() {
   try {
-    // Sample data for amenities
-    const amenitiesData = {
-      amenities: [
-        {
-          id: "l4567890-12gh-ijkl-1234-56789abcdef0",
-          name: "Wifi",
-        },
-        // ... Add other amenities data
-      ],
-    };
-
-    // Sample data for bookings
-    const bookingsData = {
-      bookings: [
-        {
-          id: "f0123456-78ab-cdef-0123-456789abcdef",
-          userId: "a1234567-89ab-cdef-0123-456789abcdef",
-          propertyId: "g9012345-67ef-0123-4567-89abcdef0123",
-          checkinDate: "2023-03-10T18:00:00.000Z",
-          checkoutDate: "2023-03-15T10:00:00.000Z",
-          numberOfGuests: 2,
-          totalPrice: 150.25,
-          bookingStatus: "confirmed",
-        },
-        // ... Add other bookings data
-      ],
-    };
-
-    // Sample data for hosts
-    const hostsData = {
-      hosts: [
-        {
-          id: "f1234567-89ab-cdef-0123-456789abcdef",
-          username: "johnDoe",
-          password: "johnDoe123",
-          name: "John Doe",
-          email: "johndoe@email.com",
-          phoneNumber: "+11234567890",
-          profilePicture: "https://example.com/images/johndoe.jpg",
-          aboutMe: "I'm a passionate traveler who loves to share my home with fellow explorers. Welcome!",
-        },
-        // ... Add other hosts data
-      ],
-    };
-
-    // Sample data for properties
-    const propertiesData = {
-      properties: [
-        {
-          id: "g9012345-67ef-0123-4567-89abcdef0123",
-          title: "Cozy Mountain Retreat",
-          description: "Experience tranquility in our cozy cabin situated on a serene mountain peak.",
-          location: "Rocky Mountains, Colorado",
-          pricePerNight: 120.5,
-          bedroomCount: 3,
-          bathRoomCount: 2,
-          maxGuestCount: 5,
-          hostId: "f1234567-89ab-cdef-0123-456789abcdef",
-          rating: 5,
-        },
-        // ... Add other properties data
-      ],
-    };
-
-    // Sample data for reviews
-    const reviewsData = {
-      reviews: [
-        {
-          id: "g7890123-45cd-ef01-2345-6789abcdef01",
-          userId: "a1234567-89ab-cdef-0123-456789abcdef",
-          propertyId: "g9012345-67ef-0123-4567-89abcdef0123",
-          rating: 5,
-          comment: "The property was amazing, and the host was very accommodating!",
-        },
-        // ... Add other reviews data
-      ],
-    };
-
-    // Sample data for users
-    const usersData = {
-      users: [
-        {
-          id: "a1234567-89ab-cdef-0123-456789abcdef",
-          username: "jdoe",
-          password: "password123",
-          name: "John Doe",
-          email: "johndoe@example.com",
-          phoneNumber: "123-456-7890",
-          profilePicture: "https://global-uploads.webflow.com/5eecfecbe625d195e35b89f2/624bfb093da7d92733c001c0_Ignacio%20Villafruela%20Rodr%C3%ADguez.jpg",
-        },
-        // ... Add other users data
-      ],
-    };
-
-    // Create amenities
-    for (const amenityData of amenitiesData.amenities) {
-      await prisma.amenity.create({
-        data: amenityData,
+    for (const amenity of amenityData.amenities) {
+      await prisma.amenity.upsert({
+        where: { id: amenity.id },
+        update: {},
+        create: amenity,
       });
     }
-
-    // Create bookings
-    for (const bookingData of bookingsData.bookings) {
-      await prisma.booking.create({
-        data: bookingData,
+    for (const booking of bookingData.bookings) {
+      await prisma.booking.upsert({
+        where: { id: booking.id },
+        update: {},
+        create: booking,
       });
     }
-
-    // Create hosts
-    for (const hostData of hostsData.hosts) {
-      await prisma.host.create({
-        data: hostData,
+    for (const host of hostData.hosts) {
+      await prisma.host.upsert({
+        where: { id: host.id },
+        update: {},
+        create: host,
       });
     }
-
-    // Create properties
-    for (const propertyData of propertiesData.properties) {
-      await prisma.property.create({
-        data: propertyData,
+    for (const property of propertyData.properties) {
+      await prisma.property.upsert({
+        where: { id: property.id },
+        update: {},
+        create: property,
       });
     }
-
-    // Create reviews
-    for (const reviewData of reviewsData.reviews) {
-      await prisma.review.create({
-        data: reviewData,
+    for (const review of reviewData.reviews) {
+      await prisma.review.upsert({
+        where: { id: review.id },
+        update: {},
+        create: review,
       });
     }
-
-    // Create users
-    for (const userData of usersData.users) {
-      await prisma.user.create({
-        data: userData,
+    for (const user of userData.users) {
+      await prisma.user.upsert({
+        where: { id: user.id },
+        update: {},
+        create: user,
       });
     }
-
     console.log("Seed data inserted successfully.");
   } catch (error) {
     console.error("Error seeding the database:", error);
