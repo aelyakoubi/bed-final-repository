@@ -5,91 +5,88 @@ generator client {
 datasource db {
   provider     = "mysql"
   url          = env("DATABASE_URL")
- // shadowDatabaseUrl = env("SHADOW_DATABASE_URL") //
+  // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
   relationMode = "prisma"
 }
 
 model User {
-  id          String    @id @default(uuid()) @map("_id")
-  username    String    @unique
-  password    String
-  name        String
-  email       String
-  phoneNumber String?
-  ProfilePicture  String?
-  bookings    Booking[]
-  reviews     Review[]
+  id             String    @id @default(uuid()) @map("_id")
+  username       String    @unique
+  password       String
+  name           String
+  email          String
+  phoneNumber    String?
+  ProfilePicture String?
+  bookings       Booking[]
+  reviews        Review[]
 }
 
 model Booking {
   id             String   @id @default(uuid())
   userId         String   @default(uuid())
-  propertyID     String   @default(uuid())
+  propertyId     String   @default(uuid())
   checkinDate    DateTime
   checkoutDate   DateTime
   numberOfGuests Int
   totalPrice     Int
   bookingsStatus String
 
-  user           User       @relation(fields: [userId], references: [id])
-  property       Property   @relation(fields: [propertyID], references: [id])
-  
+  user     User     @relation(fields: [userId], references: [id])
+  property Property @relation(fields: [propertyId], references: [id])
+
   @@index([userId])
-  @@index([propertyID])  /// problemen met prorpertyID of propertyId????///
- 
+  @@index([propertyId])
 }
 
 model Review {
   id         String @id @default(uuid())
-  userId     String     @default(uuid())
-  propertyId String     @default(uuid())
+  userId     String @default(uuid())
+  propertyId String @default(uuid())
   rating     Int
   comment    String
 
-  user       User       @relation(fields: [userId], references: [id])
-  property   Property   @relation(fields: [propertyId], references: [id])
- 
-                        /// problemen met prorpertyID of propertyId????///
+  user     User     @relation(fields: [userId], references: [id])
+  property Property @relation(fields: [propertyId], references: [id])
 
-@@index([userId])
-@@index([propertyId])
+  @@index([userId])
+  @@index([propertyId])
 }
 
 model Property {
-  id            String    @id @default(uuid())
-  hostId        String        @default(uuid())
-  title         String        
+  id            String  @id @default(uuid())
+  hostId        String  @default(uuid())
+  title         String
   description   String
   location      String
-  pricePerNight Decimal    @db.Decimal(10, 2)
+  pricePerNight Decimal @db.Decimal(10, 2)
   bedroomCount  Int
   bathroomCount Int
   maxGuestCount Int
   rating        Int
 
-  bookings      Booking[]
-  reviews       Review[]                    
-  amenities     Amenity[] 
+  bookings  Booking[]
+  reviews   Review[]
+  amenities Amenity[]
 
-  host          Host       @relation(fields: [hostId], references: [id]) 
+  host Host @relation(fields: [hostId], references: [id])
 
   @@index([hostId])
 }
 
 model Amenity {
-  id         String    @id @default(uuid()) 
+  id         String     @id @default(uuid())
   name       String
-  properties Property[] 
+  properties Property[]
 }
 
 model Host {
-  id       String    @id @default(uuid()) 
-  username String    @unique
-  password String
-  name     String
-  email       String
-  phoneNumber String
+  id             String     @id @default(uuid())
+  username       String     @unique
+  password       String
+  name           String
+  email          String
+  phoneNumber    String
   profilePicture String
-  aboutMe     String
-  listings   Property[]
+  aboutMe        String
+  listings       Property[]
 }
