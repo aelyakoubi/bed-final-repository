@@ -4,14 +4,12 @@
   "type": "module",
   "description": "Your REST API for managing bookings",
   "main": "src/index.js",
-  "prisma": {
-    "seed": "node prisma/seed.js"
-  },
   "scripts": {
     "dev": "nodemon src/index.js",
     "test-positive": "newman run \"./postman/collections/Bookings API.json\" -e \"./postman/environments/Local.postman_environment.json\"",
     "test-negative": "newman run \"./postman/collections/Bookings API Negative.json\" -e \"./postman/environments/Local.postman_environment.json\"",
-    "test": "npm run test-positive && npm run test-negative"
+    "test": "npm run test-positive && npm run test-negative",
+    "seed": "node prisma/seed.js"
   },
   "author": "",
   "license": "ISC",

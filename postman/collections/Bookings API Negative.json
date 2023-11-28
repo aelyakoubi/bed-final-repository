@@ -131,7 +131,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"username\": \"jdoe_updated\",\n  \"name\": \"John Doe Updated\",\n  \"email\": \"updatedjohndoe@example.com\",\n  \"phoneNumber\": \"987-654-3210\",\n  \"profilePicture\": \"https://updated-example.com/images/johndoe.jpg\"\n}",
+									"raw": "{\n  \"username\": \"jdoe_updated\",\n  \"name\": \"John Doe Updated\",\n  \"email\": \"updatedjohndoe@example.com\",\n  \"phoneNumber\": \"987-654-3210\",\n  \"ProfilePicture\": \"https://updated-example.com/images/johndoe.jpg\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -165,7 +165,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"username\": \"jdoe_updated\",\n  \"name\": \"John Doe Updated\",\n  \"email\": \"updatedjohndoe@example.com\",\n  \"phoneNumber\": \"987-654-3210\",\n  \"profilePicture\": \"https://updated-example.com/images/johndoe.jpg\"\n}",
+											"raw": "{\n  \"username\": \"jdoe_updated\",\n  \"name\": \"John Doe Updated\",\n  \"email\": \"updatedjohndoe@example.com\",\n  \"phoneNumber\": \"987-654-3210\",\n  \"ProfilePicture\": \"https://updated-example.com/images/johndoe.jpg\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -502,7 +502,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"username\": \"johnDoe_updated\",\n  \"name\": \"John Doe Updated\",\n  \"email\": \"updatedjohndoe@email.com\",\n  \"phoneNumber\": \"+11234567890\",\n  \"profilePicture\": \"https://updated-example.com/images/johndoe.jpg\",\n  \"aboutMe\": \"Updated bio for John Doe\"\n}",
+									"raw": "{\n  \"username\": \"johnDoe_updated\",\n  \"name\": \"John Doe Updated\",\n  \"email\": \"updatedjohndoe@email.com\",\n  \"phoneNumber\": \"+11234567890\",\n  \"ProfilePicture\": \"https://updated-example.com/images/johndoe.jpg\",\n  \"aboutMe\": \"Updated bio for John Doe\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -536,7 +536,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"username\": \"johnDoe_updated\",\n  \"name\": \"John Doe Updated\",\n  \"email\": \"updatedjohndoe@email.com\",\n  \"phoneNumber\": \"+11234567890\",\n  \"profilePicture\": \"https://updated-example.com/images/johndoe.jpg\",\n  \"aboutMe\": \"Updated bio for John Doe\"\n}",
+											"raw": "{\n  \"username\": \"johnDoe_updated\",\n  \"name\": \"John Doe Updated\",\n  \"email\": \"updatedjohndoe@email.com\",\n  \"phoneNumber\": \"+11234567890\",\n  \"rofilePicture\": \"https://updated-example.com/images/johndoe.jpg\",\n  \"aboutMe\": \"Updated bio for John Doe\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"

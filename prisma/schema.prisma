@@ -86,7 +86,7 @@ model Host {
   name           String
   email          String
   phoneNumber    String
-  profilePicture String
+  ProfilePicture String
   aboutMe        String
   listings       Property[]
 }
