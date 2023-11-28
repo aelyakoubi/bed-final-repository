@@ -1,0 +1,88 @@
+// Import necessary modules and Prisma Client
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+
+// Define a function to seed the database
+async function seed() {
+  try {
+    // Seed Users
+    const user1 = await prisma.user.create({
+      data: {
+        name: 'John Doe',
+        username: 'johndoe',
+        password: 'password123',
+        // Add other user properties as needed
+      },
+    });
+
+    // Seed Hosts
+    const host1 = await prisma.host.create({
+      data: {
+        name: 'Host User',
+        username: 'hostuser',
+        // Add other host properties as needed
+      },
+    });
+
+    // Seed Properties
+    const property1 = await prisma.property.create({
+      data: {
+        name: 'Cozy Cabin',
+        description: 'A cozy cabin in the mountains',
+        pricePerNight: 150,
+        // Add other property properties as needed
+        host: {
+          connect: { id: host1.id },
+        },
+      },
+    });
+
+    // Seed Amenities
+    const amenity1 = await prisma.amenity.create({
+      data: {
+        name: 'WiFi',
+        // Add other amenity properties as needed
+      },
+    });
+
+    // Seed Bookings
+    const booking1 = await prisma.booking.create({
+      data: {
+        checkInDate: new Date('2023-03-10T18:00:00.000Z'),
+        checkOutDate: new Date('2023-03-15T10:00:00.000Z'),
+        // Add other booking properties as needed
+        user: {
+          connect: { id: user1.id },
+        },
+        property: {
+          connect: { id: property1.id },
+        },
+      },
+    });
+
+    // Seed Reviews
+    const review1 = await prisma.review.create({
+      data: {
+        content: 'Amazing property!',
+        rating: 5,
+        // Add other review properties as needed
+        user: {
+          connect: { id: user1.id },
+        },
+        property: {
+          connect: { id: property1.id },
+        },
+      },
+    });
+
+    console.log('Database seeded successfully!');
+  } catch (error) {
+    console.error('Error seeding database:', error);
+  } finally {
+    // Close Prisma Client connection
+    await prisma.$disconnect();
+  }
+}
+
+// Call the seed function
+seed();
