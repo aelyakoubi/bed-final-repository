@@ -7,7 +7,7 @@
       "name": "John Doe",
       "email": "johndoe@example.com",
       "phoneNumber": "123-456-7890",
-      "ProfilePicture": "https://global-uploads.webflow.com/5eecfecbe625d195e35b89f2/624bfb093da7d92733c001c0_Ignacio%20Villafruela%20Rodr%C3%ADguez.jpg"
+      "profilePicture": "https://global-uploads.webflow.com/5eecfecbe625d195e35b89f2/624bfb093da7d92733c001c0_Ignacio%20Villafruela%20Rodr%C3%ADguez.jpg"
     },
     {
       "id": "b2345678-90cd-ef01-2345-6789abcdef01",
@@ -16,7 +16,7 @@
       "name": "Anna Simpson",
       "email": "annasimpson@example.com",
       "phoneNumber": "123-456-7891",
-      "ProfilePicture": "https://example.com/asimpson-profile-pic.jpg"
+      "profilePicture": "https://example.com/asimpson-profile-pic.jpg"
     },
     {
       "id": "c3456789-01de-f012-3456-789abcdef012",
@@ -25,7 +25,7 @@
       "name": "Robert James",
       "email": "robertjames@example.com",
       "phoneNumber": "123-456-7892",
-      "ProfilePicture": "https://example.com/rjames-profile-pic.jpg"
+      "profilePicture": "https://example.com/rjames-profile-pic.jpg"
     },
     {
       "id": "d4567890-12ef-0123-4567-89abcdef0123",
@@ -34,7 +34,7 @@
       "name": "Karen Lopez",
       "email": "karenlopez@example.com",
       "phoneNumber": "123-456-7893",
-      "ProfilePicture": "https://example.com/klopez-profile-pic.jpg"
+      "profilePicture": "https://example.com/klopez-profile-pic.jpg"
     },
     {
       "id": "e5678901-23f0-1234-5678-9abcdef01234",
@@ -43,7 +43,7 @@
       "name": "Steve Miller",
       "email": "stevemiller@example.com",
       "phoneNumber": "123-456-7894",
-      "ProfilePicture": "https://example.com/smiller-profile-pic.jpg"
+      "profilePicture": "https://example.com/smiller-profile-pic.jpg"
     }
   ]
 }

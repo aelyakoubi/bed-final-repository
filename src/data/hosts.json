@@ -7,7 +7,7 @@
       "name": "John Doe",
       "email": "johndoe@email.com",
       "phoneNumber": "+11234567890",
-      "ProfilePicture": "https://example.com/images/johndoe.jpg",
+      "profilePicture": "https://example.com/images/johndoe.jpg",
       "aboutMe": "I'm a passionate traveler who loves to share my home with fellow explorers. Welcome!"
     },
     {
@@ -17,7 +17,7 @@
       "name": "Linda Smith",
       "email": "lindasmith@email.com",
       "phoneNumber": "+12234567891",
-      "ProfilePicture": "https://example.com/images/lindasmith.jpg",
+      "profilePicture": "https://example.com/images/lindasmith.jpg",
       "aboutMe": "A professional chef and a part-time host. I love curating unique experiences for my guests."
     },
     {
@@ -27,7 +27,7 @@
       "name": "Mike Brown",
       "email": "mikebrown@email.com",
       "phoneNumber": "+13234567892",
-      "ProfilePicture": "https://example.com/images/mikebrown.jpg",
+      "profilePicture": "https://example.com/images/mikebrown.jpg",
       "aboutMe": "Nature enthusiast, hiker, and a lover of arts. My home reflects my passions. Stay and enjoy!"
     },
     {
@@ -37,7 +37,7 @@
       "name": "Sarah Lee",
       "email": "sarahlee@email.com",
       "phoneNumber": "+14234567893",
-      "ProfilePicture": "https://example.com/images/sarahlee.jpg",
+      "profilePicture": "https://example.com/images/sarahlee.jpg",
       "aboutMe": "Travel blogger turned host. My home is filled with artifacts from around the world. Feel the global vibe!"
     },
     {
@@ -47,7 +47,7 @@
       "name": "Paul Green",
       "email": "paulgreen@email.com",
       "phoneNumber": "+15234567894",
-      "ProfilePicture": "https://example.com/images/paulgreen.jpg",
+      "profilePicture": "https://example.com/images/paulgreen.jpg",
       "aboutMe": "Engineer by profession, passionate about history. Stay in my vintage-themed home and relive the past."
     }
   ]
