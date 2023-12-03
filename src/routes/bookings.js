@@ -17,23 +17,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/", auth, async (req, res, next) => {
-  try {
-    const { userId, propertyId, startDate, endDate } = req.body;
-g
-    const newBooking = await createBooking(
-      userId,
-      propertyId,
-      startDate,
-      endDate
-    );
-
-    res.status(201).json(newBooking);
-  } catch (error) {
-    next(error);
-  }
-});
-
 router.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -44,6 +27,23 @@ router.get("/:id", async (req, res, next) => {
     } else {
       res.status(200).json(booking);
     }
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/", auth, async (req, res, next) => {
+  try {
+    const { userId, propertyId, startDate, endDate } = req.body;
+
+    const newBooking = await createBooking(
+      userId,
+      propertyId,
+      startDate,
+      endDate
+    );
+
+    res.status(201).json(newBooking);
   } catch (error) {
     next(error);
   }

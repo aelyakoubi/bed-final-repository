@@ -1,13 +1,40 @@
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+const createBooking = async (
+  userId,
+  propertyId,
+  checkinDate,
+  checkoutDate,
+  numberOfGuests,
+  totalPrice,
+  bookingStatus,
+  res
+) => {
+  console.log("the number of guests is: " + numberOfGuests);
 
-const createBooking = async (bookingData) => {
+  const prisma = new PrismaClient();
+
   try {
-    const booking = await prisma.booking.create({ data: bookingData });
-    return booking;
+    const booking = await prisma.booking.create({
+      data: {
+        userId,
+        propertyId,
+        checkinDate,
+        checkoutDate,
+        numberOfGuests,
+        totalPrice,
+        bookingStatus,
+      },
+    });
+
+    // Send JSON response
+    res.status(201).json(booking);
   } catch (error) {
-    throw new Error(`Error in createBooking service: ${error.message}`);
+    // Handle errors and send an appropriate response
+    console.error("Error creating booking:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  } finally {
+    await prisma.$disconnect(); // Disconnect Prisma client after the operation
   }
 };
 
