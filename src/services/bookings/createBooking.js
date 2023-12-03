@@ -24,6 +24,9 @@ const createBooking = async (
         numberOfGuests,
         totalPrice,
         bookingStatus,
+        // Connect related models using the correct syntax
+        user: { connect: { id: userId } },
+        property: { connect: { id: propertyId } },
       },
     });
 

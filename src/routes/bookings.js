@@ -8,14 +8,27 @@ import auth from "../middleware/auth.js";
 
 const router = Router();
 
+// bookings.js route handler
+
 router.get("/", async (req, res, next) => {
   try {
-    const bookings = await getBookings();
-    res.json(bookings);
+    const { userId, propertyId, /* other filters */ } = req.query;
+
+    const bookings = await getBookings(
+      userId,
+      propertyId,
+      /* pass other filters as arguments */
+    );
+
+    // Send JSON response
+    res.status(200).json(bookings);
   } catch (error) {
-    next(error);
+    // Handle errors and send an appropriate response
+    console.error(error.message);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
 
 router.get("/:id", async (req, res, next) => {
   try {
