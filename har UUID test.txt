@@ -1,0 +1,4 @@
+npm install har-validator@latest
+
+
+npm install uuid@latest

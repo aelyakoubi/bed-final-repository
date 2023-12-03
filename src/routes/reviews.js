@@ -10,12 +10,14 @@ const router = Router();
 
 router.get("/", async (req, res, next) => {
   try {
-    const reviews = await getReviews();
-    res.json(reviews);
+    await getReviews(res);
   } catch (error) {
-    next(error);
+    // Handle errors and send an appropriate response
+    console.error(error.message);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
 
 router.post("/", auth, async (req, res, next) => {
   try {
