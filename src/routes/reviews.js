@@ -21,7 +21,12 @@ router.post("/", auth, async (req, res, next) => {
   try {
     const { content, rating, propertyId } = req.body;
 
-    const newReview = await createReview(content, rating, propertyId);
+    const newReview = await createReview({
+      content,
+      rating,
+      propertyId,
+      // Add other properties if needed
+    });
 
     res.status(201).json(newReview);
   } catch (error) {

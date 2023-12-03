@@ -2,15 +2,30 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const updateReviewById = async (reviewId, updatedData) => {
+const updateReviewById = async (
+  id,
+  userId,
+  propertyId,
+  rating,
+  comment,
+  updatedData,
+  res
+) => {
   try {
     const updatedReview = await prisma.review.update({
-      where: { id: reviewId },
+      where: { id, userId, propertyId, rating, comment },
       data: updatedData,
     });
-    return updatedReview;
+
+    // Send JSON response
+    res.status(200).json(updatedReview);
   } catch (error) {
-    throw new Error(`Error in updateReviewById service: ${error.message}`);
+    // Handle errors and send an appropriate response
+    console.error("Error updating review:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  } finally {
+    // Disconnect PrismaClient
+    await prisma.$disconnect();
   }
 };
 
