@@ -41,7 +41,7 @@ model Host {
 
 model Property {
   id            String    @id @default(uuid())
-  hostId        String
+  hostId        String    @default(uuid())
   title         String
   description   String
   location      String
@@ -61,8 +61,8 @@ model Property {
 
 model Review {
   id         String @id @default(uuid())
-  userId     String
-  propertyId String
+  userId     String @default(uuid()) // i added this @default(uuid()) 
+  propertyId String @default(uuid()) // i added this @default(uuid()) 
   rating     Int
   comment    String
 
@@ -75,8 +75,8 @@ model Review {
 
 model Booking {
   id             String   @id @default(uuid())
-  userId         String
-  propertyId     String
+  userId         String   @default(uuid()) // i added this @default(uuid()) 
+  propertyId     String   @default(uuid()) // i added this @default(uuid()) 
   checkinDate    DateTime
   checkoutDate   DateTime
   numberOfGuests Int

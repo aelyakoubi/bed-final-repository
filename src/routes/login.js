@@ -12,7 +12,7 @@ router.post("/", async (req, res, next) => {
     const user = await getUserByUsernameAndPassword(username);
 
     // passwords don't match + error //
-    if (!user || !comparePasswords(password, user.password)) {
+    if (!user || password !== user.password) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
