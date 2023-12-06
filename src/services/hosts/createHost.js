@@ -1,4 +1,8 @@
+// createHost.js
+
 import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 const createHost = async (
   username,
@@ -7,11 +11,8 @@ const createHost = async (
   email,
   phoneNumber,
   profilePicture,
-  aboutMe,
-  res
+  aboutMe
 ) => {
-  const prisma = new PrismaClient();
-
   try {
     const host = await prisma.host.create({
       data: {
@@ -25,14 +26,11 @@ const createHost = async (
       },
     });
 
-    // Send JSON response
-    res.status(201).json(host);
+    return host;
   } catch (error) {
-    // Handle errors and send an appropriate response
-    console.error("Error creating host:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    throw new Error(`Error in createHost service: ${error.message}`);
   } finally {
-    await prisma.$disconnect(); // Disconnect Prisma client after the operation
+    await prisma.$disconnect();
   }
 };
 

@@ -11,11 +11,16 @@ const router = Router();
 router.get("/", async (req, res, next) => {
   try {
     const amenities = await getAmenities();
-    res.json(amenities);
-  } catch (error) {
-    next(error);
-  }
-});
+
+       // Send JSON response
+       res.status(200).json(bookings);
+      } catch (error) {
+        // Handle errors and send an appropriate response
+        console.error(error.message);
+        res.status(500).json({ error: "Internal Server Error" });
+      }
+    });
+ 
 
 router.post("/", auth, async (req, res, next) => {
   try {
