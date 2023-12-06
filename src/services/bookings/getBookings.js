@@ -8,31 +8,34 @@ const getBookings = async (
   numberOfGuests,
   totalPrice,
   bookingStatus,
-  res
 ) => {
-  const prisma = new PrismaClient();
-
+  let prisma;
   try {
+    prisma = new PrismaClient();
+
+    const prismaFilters = {
+      userId,
+      propertyId,
+      checkinDate,
+      checkoutDate,
+      numberOfGuests,
+      totalPrice,
+      bookingStatus,
+    };
+
     const bookings = await prisma.booking.findMany({
-      where: {
-        userId,
-        propertyId,
-        checkinDate,
-        checkoutDate,
-        numberOfGuests,
-        totalPrice,
-        bookingStatus,
-      },
+      where: prismaFilters,
     });
 
-    // Send JSON response
-    res.status(200).json(bookings);
+    return bookings;
   } catch (error) {
-    // Handle errors and send an appropriate response
-    console.error("Error fetching bookings:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    // Propagate the error to the calling function (likely the route handler)
+    throw new Error(`Error fetching bookings: ${error.message}`);
   } finally {
-    await prisma.$disconnect(); // Disconnect Prisma client after the operation
+    // Disconnect PrismaClient if it's defined
+    if (prisma) {
+      await prisma.$disconnect();
+    }
   }
 };
 

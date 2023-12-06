@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const createReview = async ({ id, userId, propertyId, rating, comment, /* other properties */, res }) => {
+const createReview = async ({ id, userId, propertyId, rating, comment, res }) => {
   try {
     const review = await prisma.review.create({
       data: {
@@ -10,8 +10,8 @@ const createReview = async ({ id, userId, propertyId, rating, comment, /* other 
         userId,
         propertyId,
         rating,
-        comment,
-        /* other properties */
+        comment
+  
       }
     });
 
