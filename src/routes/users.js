@@ -11,25 +11,11 @@ const router = Router();
 router.get("/", async (req, res, next) => {
   try {
     const users = await getUsers();
-    res.json(users);
+    res.status(201).json(newBooking);
   } catch (error) {
     next(error);
   }
 });
-
-
-router.post("/", auth, async (req, res, next) => {
-  try {
-    const { name, password, username, image } = req.body;
-
-    const newUser = await createUser(username, name, password, image);
-
-    res.status(201).json(newUser);
-  } catch (error) {
-    next(error);
-  }
-});
-
 
 router.get("/:id", async (req, res, next) => {
   try {
@@ -41,6 +27,18 @@ router.get("/:id", async (req, res, next) => {
     } else {
       res.status(200).json(user);
     }
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/", auth, async (req, res, next) => {
+  try {
+    const { name, password, username, image } = req.body;
+
+    const newUser = await createUser(username, name, password, image);
+
+    res.status(201).json(newUser);
   } catch (error) {
     next(error);
   }
@@ -65,7 +63,6 @@ router.delete("/:id", auth, async (req, res, next) => {
     next(error);
   }
 });
-
 
 router.put("/:id", auth, async (req, res, next) => {
   try {
