@@ -11,13 +11,11 @@ const router = Router();
 router.get("/", async (req, res, next) => {
   try {
     await getReviews(res);
+    res.status(201).json(newBooking);
   } catch (error) {
-    // Handle errors and send an appropriate response
-    console.error(error.message);
-    res.status(500).json({ error: "Internal Server Error" });
+    next(error);
   }
 });
-
 
 router.post("/", auth, async (req, res, next) => {
   try {

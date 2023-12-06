@@ -11,7 +11,7 @@ const router = Router();
 router.get("/", async (req, res, next) => {
   try {
     const properties = await getProperties();
-    res.json(properties);
+    res.status(201).json(newBooking);
   } catch (error) {
     next(error);
   }

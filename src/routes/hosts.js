@@ -11,7 +11,8 @@ const router = Router();
 router.get("/", async (req, res, next) => {
   try {
     const hosts = await getHosts();
-    res.json(hosts);
+
+    res.status(201).json(newBooking);
   } catch (error) {
     next(error);
   }
@@ -20,7 +21,7 @@ router.get("/", async (req, res, next) => {
 router.post("/", auth, async (req, res, next) => {
   try {
     const { name, email, image } = req.body;
-    
+
     const newHost = await createHost(name, email, image);
 
     res.status(201).json(newHost);
