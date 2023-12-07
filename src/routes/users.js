@@ -11,7 +11,11 @@ const router = Router();
 router.get("/", async (req, res, next) => {
   try {
     const users = await getUsers();
-    res.status(201).json(newBooking);
+
+    // Exclude the 'password' field from each user in the response
+    const usersWithoutPassword = users.map(({ password, ...userWithoutPassword }) => userWithoutPassword);
+
+    res.status(200).json(usersWithoutPassword);
   } catch (error) {
     next(error);
   }
@@ -34,9 +38,9 @@ router.get("/:id", async (req, res, next) => {
 
 router.post("/", auth, async (req, res, next) => {
   try {
-    const { name, password, username, image } = req.body;
+    const { id, name, username, password, email, phoneNumber, profilePicture} = req.body;
 
-    const newUser = await createUser(username, name, password, image);
+    const newUser = await createUser(id, name, username, password, email, phoneNumber, profilePicture);
 
     res.status(201).json(newUser);
   } catch (error) {
@@ -67,13 +71,10 @@ router.delete("/:id", auth, async (req, res, next) => {
 router.put("/:id", auth, async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { name, password, username, image } = req.body;
+    const { name, username, password, email, phoneNumber, profilePicture } = req.body;
 
     const updatedUser = await updateUserById(id, {
-      name,
-      password,
-      username,
-      image,
+      id, name, username, password, email, phoneNumber, profilePicture
     });
 
     if (updatedUser) {

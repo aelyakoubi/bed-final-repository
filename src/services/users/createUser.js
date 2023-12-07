@@ -2,12 +2,16 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const createUser = async (username, name, password, image) => {
+const createUser = async (id, username, name, email, phoneNumber, profilePicture, password, image) => {
   try {
     const newUser = await prisma.user.create({
       data: {
+        id,
         username,
         name,
+        email,
+        phoneNumber,
+        profilePicture,
         password,
         image,
       },

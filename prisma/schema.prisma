@@ -61,8 +61,8 @@ model Property {
 
 model Review {
   id         String @id @default(uuid())
-  userId     String @default(uuid()) // i added this @default(uuid()) 
-  propertyId String @default(uuid()) // i added this @default(uuid()) 
+  userId     String @default(uuid()) // i added this. is this good or no
+  propertyId String @default(uuid()) // i added this is this good or no
   rating     Int
   comment    String
 

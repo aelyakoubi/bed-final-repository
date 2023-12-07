@@ -11,7 +11,7 @@ const createBooking = async (
   totalPrice,
   bookingStatus
 ) => {
-  console.log("the number of guests is: " + numberOfGuests);
+
 
   try {
     const booking = await prisma.booking.create({
