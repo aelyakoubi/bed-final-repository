@@ -12,23 +12,15 @@ router.get("/", async (req, res, next) => {
   try {
     const hosts = await getHosts();
 
-    res.status(201).json(newBooking);
+ // Exclude the 'password' field from each user in the response
+ const hostsWithoutPassword = hosts.map(({ password, ...hostWithoutPassword }) => hostWithoutPassword);
+
+ res.status(200).json(hostsWithoutPassword);
   } catch (error) {
     next(error);
   }
 });
 
-router.post("/", auth, async (req, res, next) => {
-  try {
-    const { name, email, image } = req.body;
-
-    const newHost = await createHost(name, email, image);
-
-    res.status(201).json(newHost);
-  } catch (error) {
-    next(error);
-  }
-});
 
 router.get("/:id", async (req, res, next) => {
   try {
@@ -40,6 +32,19 @@ router.get("/:id", async (req, res, next) => {
     } else {
       res.status(200).json(host);
     }
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/", auth, async (req, res, next) => {
+  try {
+    const { username, password, name, email, phoneNumber, profilePicture, aboutMe} = req.body;
+
+    const newHost = await createHost(username, password, name, email, phoneNumber, profilePicture, aboutMe);
+
+    res.status(201).json(newHost);
+    
   } catch (error) {
     next(error);
   }
@@ -68,9 +73,11 @@ router.delete("/:id", auth, async (req, res, next) => {
 router.put("/:id", auth, async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { name, email, image } = req.body;
+    const {username, password, name, email, phoneNumber, profilePicture, aboutMe } = req.body;
 
-    const updatedHost = await updateHostById(id, { name, email, image });
+    const updatedHost = await updateHostById(id, { 
+      username, password, name, email, phoneNumber, profilePicture, aboutMe
+    });
 
     if (updatedHost) {
       res.status(200).send({
