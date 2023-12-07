@@ -1,20 +1,20 @@
 import { PrismaClient } from "@prisma/client";
-import amenitiesData from "../src/data/amenities.json" assert {type: "json"}
-import bookingsData from "../src/data/bookings.json" assert {type: "json"}
-import hostsData from "../src/data/hosts.json" assert {type: "json"}
-import propertiesData from "../src/data/properties.json" assert {type: "json"}
-import reviewsData from "../src/data/reviews.json" assert {type: "json"}
-import usersData from "../src/data/users.json" assert {type: "json"}
+import amenitiesData from "../src/data/amenities.json" assert {type: "json"};
+import bookingsData from "../src/data/bookings.json" assert {type: "json"};
+import hostsData from "../src/data/hosts.json" assert {type: "json"};
+import propertiesData from "../src/data/properties.json" assert {type: "json"};
+import reviewsData from "../src/data/reviews.json" assert {type: "json"};
+import usersData from "../src/data/users.json" assert {type: "json"};
 
 const prisma = new PrismaClient({ log: ["query", "info", "warn", "error"] });
 
 async function main() {
     const { amenities } = amenitiesData;
-    const { bookings } = bookingsData
-    const { hosts } = hostsData
-    const { properties } = propertiesData
-    const { reviews } = reviewsData
-    const { users } = usersData
+    const { bookings } = bookingsData;
+    const { hosts } = hostsData;
+    const { properties } = propertiesData;
+    const { reviews } = reviewsData;
+    const { users } = usersData;
 
     for (const user of users) {
         await prisma.user.upsert({
