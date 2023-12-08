@@ -3,17 +3,10 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const updateReviewById = async (
-  id,
-  userId,
-  propertyId,
-  rating,
-  comment,
-  updatedData,
-  res
-) => {
+  userId, propertyId, updatedData) => {
   try {
     const updatedReview = await prisma.review.update({
-      where: { id, userId, propertyId, rating, comment },
+      where: { id: userId, propertyId},
       data: updatedData,
     });
 

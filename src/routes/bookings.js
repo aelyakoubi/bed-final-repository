@@ -47,20 +47,44 @@ router.get("/:id", async (req, res, next) => {
 
 router.post("/", auth, async (req, res, next) => {
   try {
-    const { userId, propertyId, startDate, endDate } = req.body;
-
-    const newBooking = await createBooking(
+    // Extract relevant data from the request body
+    const {
       userId,
       propertyId,
-      startDate,
-      endDate
-    );
+      checkinDate,
+      checkoutDate,
+      numberOfGuests,
+      totalPrice,
+      bookingStatus,
+    } = req.body;
 
+    // Validate the presence of required data
+    if (!userId || !propertyId || !checkinDate || !checkoutDate || !numberOfGuests || !totalPrice || !bookingStatus) {
+      return res.status(400).json({ message: "Missing required parameters for creating a booking." });
+    }
+
+    // Create booking data
+    const bookingData = {
+      userId,
+      propertyId,
+      checkinDate,
+      checkoutDate,
+      numberOfGuests,
+      totalPrice,
+      bookingStatus,
+    };
+
+    // Call the createBooking function
+    const newBooking = await createBooking(bookingData);
+
+    // Respond with the created booking
     res.status(201).json(newBooking);
   } catch (error) {
+    // Handle errors
     next(error);
   }
 });
+
 
 router.delete("/:id", auth, async (req, res, next) => {
   try {
@@ -85,14 +109,10 @@ router.delete("/:id", auth, async (req, res, next) => {
 router.put("/:id", auth, async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { userId, propertyId, startDate, endDate } = req.body;
+    const { userId, propertyId, checkinDate, checkoutDate,numberOfGuests,totalPrice, bookingStatus  } = req.body;
 
     const updatedBooking = await updateBookingById(
-      id,
-      userId,
-      propertyId,
-      startDate,
-      endDate
+      userId, propertyId, checkinDate, checkoutDate,numberOfGuests,totalPrice, bookingStatus 
     );
 
     if (updatedBooking) {

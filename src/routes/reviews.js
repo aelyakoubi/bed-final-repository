@@ -19,12 +19,10 @@ router.get("/", async (req, res, next) => {
 
 router.post("/", auth, async (req, res, next) => {
   try {
-    const { content, rating, propertyId } = req.body;
+    const { rating, comment, propertyId, userId  } = req.body;
 
     const newReview = await createReview({
-      content,
-      rating,
-      propertyId,
+      rating, comment, propertyId, userId 
       // Add other properties if needed
     });
 
@@ -72,11 +70,9 @@ router.delete("/:id", auth, async (req, res, next) => {
 router.put("/:id", auth, async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { content, rating, propertyId } = req.body;
+    const { rating, comment, propertyId, userId } = req.body;
     const updatedReview = await updateReviewById(id, {
-      content,
-      rating,
-      propertyId,
+      rating, comment, propertyId, userId 
     });
 
     if (updatedReview) {

@@ -2,22 +2,19 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const getReviewById = async (id, userId, propertyId, rating, comment, res) => {
+const getReviewById = async (reviewId) => {
   try {
     const review = await prisma.review.findUnique({
-      where: { id, userId, propertyId, rating, comment },
+      where: { id: reviewId },
     });
 
-    // Send JSON response
-    res.status(200).json(review);
+    return review;
   } catch (error) {
-    // Handle errors and send an appropriate response
-    console.error("Error fetching review:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    throw error;
   } finally {
-    // Disconnect PrismaClient
     await prisma.$disconnect();
   }
 };
+
 
 export default getReviewById;

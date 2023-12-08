@@ -2,27 +2,15 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const deleteReviewById = async (
-  id,
-  userId,
-  propertyId,
-  rating,
-  comment,
-  res
-) => {
+const deleteReviewById = async (reviewId) => {
   try {
-    const deletedReview = await prisma.review.delete({
-      where: { id, userId, propertyId, rating, comment },
+    const review = await prisma.review.delete({
+      where: { id: reviewId},
     });
-
-    // Send JSON response
-    res.status(200).json(deletedReview);
+    return review;
   } catch (error) {
-    // Handle errors and send an appropriate response
-    console.error("Error deleting review:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    throw error;
   } finally {
-    // Disconnect PrismaClient
     await prisma.$disconnect();
   }
 };
