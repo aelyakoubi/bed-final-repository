@@ -13,7 +13,7 @@ router.get("/", async (req, res, next) => {
     const amenities = await getAmenities();
 
        // Send JSON response
-       res.status(200).json(bookings);
+       res.status(200).json(amenities);
       } catch (error) {
         // Handle errors and send an appropriate response
         console.error(error.message);

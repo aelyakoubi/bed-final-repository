@@ -11,21 +11,19 @@ const router = Router();
 router.get("/", async (req, res, next) => {
   try {
     const properties = await getProperties();
-    res.status(201).json(newBooking);
+    res.status(200).json(properties); 
   } catch (error) {
     next(error);
   }
 });
 
+
 router.post("/", auth, async (req, res, next) => {
   try {
-    const { name, description, amenities, pricePerNight } = req.body;
+    const { title, description, location, pricePerNight, bedroomCount, bathRoomCount, maxGuestCount, hostId, rating } = req.body;
 
     const newProperty = await createProperty(
-      name,
-      description,
-      amenities,
-      pricePerNight
+      title, description, location, pricePerNight, bedroomCount, bathRoomCount, maxGuestCount, hostId, rating 
     );
     res.status(201).json(newProperty);
   } catch (error) {
@@ -71,13 +69,10 @@ router.delete("/:id", auth, async (req, res, next) => {
 router.put("/:id", auth, async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { name, description, amenities, pricePerNight } = req.body;
+    const {title, description, location, pricePerNight, bedroomCount, bathRoomCount, maxGuestCount, hostId, rating } = req.body;
 
     const updatedProperty = await updatePropertyById(id, {
-      name,
-      description,
-      amenities,
-      pricePerNight,
+      title, description, location, pricePerNight, bedroomCount, bathRoomCount, maxGuestCount, hostId, rating 
     });
     if (updatedProperty) {
       res.status(200).send({
