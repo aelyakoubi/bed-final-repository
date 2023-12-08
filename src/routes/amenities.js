@@ -12,22 +12,20 @@ router.get("/", async (req, res, next) => {
   try {
     const amenities = await getAmenities();
 
-       // Send JSON response
-       res.status(200).json(amenities);
-      } catch (error) {
-        // Handle errors and send an appropriate response
-        console.error(error.message);
-        res.status(500).json({ error: "Internal Server Error" });
-      }
-    });
- 
+    // Send JSON response
+    res.status(200).json(amenities);
+  } catch (error) {
+    // Handle errors and send an appropriate response
+    console.error(error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 router.post("/", auth, async (req, res, next) => {
   try {
+    const { name } = req.body;
 
-    const { name, description } = req.body;
-
-    const newAmenity = await createAmenity(name, description);
+    const newAmenity = await createAmenity(name);
 
     res.status(201).json(newAmenity);
   } catch (error) {
@@ -73,9 +71,9 @@ router.delete("/:id", auth, async (req, res, next) => {
 router.put("/:id", auth, async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { name, description } = req.body;
+    const { name } = req.body;
 
-    const updatedAmenity = await updateAmenityById(id, { name, description });
+    const updatedAmenity = await updateAmenityById(id, { name });
 
     if (updatedAmenity) {
       res.status(200).send({
