@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const createBooking = async (
+const createBooking = async ({
   userId,
   propertyId,
   checkinDate,
@@ -10,9 +10,7 @@ const createBooking = async (
   numberOfGuests,
   totalPrice,
   bookingStatus
-) => {
-
-
+}) => {
   try {
     const booking = await prisma.booking.create({
       data: {
@@ -23,9 +21,6 @@ const createBooking = async (
         numberOfGuests,
         totalPrice,
         bookingStatus,
-        // Connect related models using the correct syntax
-        user: { connect: { id: userId } },
-        property: { connect: { id: propertyId } },
       },
     });
 
@@ -33,7 +28,7 @@ const createBooking = async (
   } catch (error) {
     throw new Error(`Error creating booking: ${error.message}`);
   } finally {
-    await prisma.$disconnect(); // Disconnect Prisma client after the operation
+    await prisma.$disconnect();
   }
 };
 

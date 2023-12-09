@@ -9,14 +9,14 @@ import auth from "../middleware/auth.js";
 const router = Router();
 
 // bookings.js route handler
+// bookings.js route handler
 
 router.get("/", async (req, res, next) => {
   try {
-    const { userId, propertyId, /* other filters */ } = req.query;
+    const { userId, /* other filters */ } = req.query;
 
     const bookings = await getBookings(
       userId,
-      propertyId,
       /* pass other filters as arguments */
     );
 
@@ -26,22 +26,6 @@ router.get("/", async (req, res, next) => {
     // Handle errors and send an appropriate response
     console.error(error.message);
     res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-
-router.get("/:id", async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const booking = await getBookingById(id);
-
-    if (!booking) {
-      res.status(404).json({ message: `Booking with id ${id} not found` });
-    } else {
-      res.status(200).json(booking);
-    }
-  } catch (error) {
-    next(error);
   }
 });
 
@@ -81,6 +65,22 @@ router.post("/", auth, async (req, res, next) => {
     res.status(201).json(newBooking);
   } catch (error) {
     // Handle errors
+    next(error);
+  }
+});
+
+
+router.get("/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const booking = await getBookingById(id);
+
+    if (!booking) {
+      res.status(404).json({ message: `Booking with id ${id} not found` });
+    } else {
+      res.status(200).json(booking);
+    }
+  } catch (error) {
     next(error);
   }
 });
