@@ -106,14 +106,16 @@ router.delete("/:id", auth, async (req, res, next) => {
   }
 });
 
+// routes/bookings.js
+
+// ... (previous imports)
+
 router.put("/:id", auth, async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { userId, propertyId, checkinDate, checkoutDate,numberOfGuests,totalPrice, bookingStatus  } = req.body;
+    const updatedBookingData = req.body;
 
-    const updatedBooking = await updateBookingById(
-      userId, propertyId, checkinDate, checkoutDate,numberOfGuests,totalPrice, bookingStatus 
-    );
+    const updatedBooking = await updateBookingById(id, updatedBookingData);
 
     if (updatedBooking) {
       res.status(200).send({
@@ -128,5 +130,7 @@ router.put("/:id", auth, async (req, res, next) => {
     next(error);
   }
 });
+
+
 
 export default router;

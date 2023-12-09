@@ -3,21 +3,16 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const updateReviewById = async (
-  userId, propertyId, updatedData) => {
+  reviewId, updatedReviewData) => {
   try {
-    const updatedReview = await prisma.review.update({
-      where: { id: userId, propertyId},
-      data: updatedData,
+    const review = await prisma.review.update({
+      where: { id: reviewId},
+      data: updatedReviewData,
     });
-
-    // Send JSON response
-    res.status(200).json(updatedReview);
+    return review;
   } catch (error) {
-    // Handle errors and send an appropriate response
-    console.error("Error updating review:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    throw error;
   } finally {
-    // Disconnect PrismaClient
     await prisma.$disconnect();
   }
 };
