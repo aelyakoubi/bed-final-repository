@@ -10,12 +10,16 @@ const router = Router();
 
 router.get("/", async (req, res, next) => {
   try {
-    const properties = await getProperties();
-    res.status(200).json(properties); 
+    const { location, pricePerNight } = req.query;
+
+    const properties = await getProperties(location, pricePerNight);
+
+    res.status(200).json(properties);
   } catch (error) {
     next(error);
   }
 });
+
 
 
 router.post("/", auth, async (req, res, next) => {

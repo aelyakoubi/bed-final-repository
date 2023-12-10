@@ -13,20 +13,17 @@ const router = Router();
 
 router.get("/", async (req, res, next) => {
   try {
-    const { userId, /* other filters */ } = req.query;
+    const { userId } = req.query;
 
-    const bookings = await getBookings(
-      userId,
-      /* pass other filters as arguments */
-    );
+    const bookings = await getBookings(userId);
 
-    // Send JSON response
+    // Respond with the found bookings
     res.status(200).json(bookings);
   } catch (error) {
-    // Handle errors and send an appropriate response
-    console.error(error.message);
+    console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
+  next(error);
 });
 
 router.post("/", auth, async (req, res, next) => {
