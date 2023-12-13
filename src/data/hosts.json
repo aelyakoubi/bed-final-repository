@@ -24,22 +24,22 @@
       "id": "d3456789-01cd-def0-1234-56789abcdef0",
       "username": "mikeBrown",
       "password": "mikeB2023",
-      "name": "Mike Brown",
+      "name": "Pollen",
       "email": "piet@vanmolen.nl",
       "phoneNumber": "+13234567892",
       "profilePicture": "https://example.com/images/mikebrown.jpg",
       "aboutMe": "Nature enthusiast, hiker, and a lover of arts. My home reflects my passions. Stay and enjoy!"
     },
     {
-      "id": "c4567890-12de-f012-3456-789abcdef012",
-      "username": "sarahLee",
-      "password": "sarahL456",
-      "name": "Sarah Lee",
-      "email": "sarahlee@email.com",
-      "phoneNumber": "+14234567893",
-      "profilePicture": "https://example.com/images/sarahlee.jpg",
-      "aboutMe": "Travel blogger turned host. My home is filled with artifacts from around the world. Feel the global vibe!"
-    },
+      "id": "830e8008-bc05-428e-a8b6-b359648750b3",
+      "username": "ahmed_elyakoubi",
+      "password": "new_POST_HOST",
+      "name": "Linda Pollen",
+      "email": "a.elyakoubi2014@gmail.com",
+      "phoneNumber": "123-456-7891-7777777",
+      "profilePicture": "https://example.com/asimpson-profile-pic.jpg",
+      "aboutMe": "i am here in Amsterdam"
+  },
     {
       "id": "b5678901-23ef-0123-4567-89abcdef0123",
       "username": "paulGreen",

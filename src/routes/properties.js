@@ -10,12 +10,13 @@ const router = Router();
 
 router.get("/", async (req, res, next) => {
   try {
-    const { location, pricePerNight } = req.query;
+    const {location, pricePerNight} = req.query;
 
-    const properties = await getProperties(location, pricePerNight);
+    const properties = await getProperties(location,pricePerNight);
 
     res.status(200).json(properties);
   } catch (error) {
+    console.error("Error in /properties endpoint:", error);
     next(error);
   }
 });
@@ -24,10 +25,10 @@ router.get("/", async (req, res, next) => {
 
 router.post("/", auth, async (req, res, next) => {
   try {
-    const { title, description, location, pricePerNight, bedroomCount, bathRoomCount, maxGuestCount, hostId, rating } = req.body;
+    const { userId, title, description, location, pricePerNight, bedroomCount, bathRoomCount, maxGuestCount, hostId, rating } = req.body;
 
     const newProperty = await createProperty(
-      title, description, location, pricePerNight, bedroomCount, bathRoomCount, maxGuestCount, hostId, rating 
+      userId, title, description, location, pricePerNight, bedroomCount, bathRoomCount, maxGuestCount, hostId, rating 
     );
     res.status(201).json(newProperty);
   } catch (error) {
