@@ -12,8 +12,11 @@ router.get("/", async (req, res, next) => {
   try {
     const {email,username} = req.query;
 
+    // Call the getUsers service with the email parameter for filtering
     const users = await getUsers(email,username);
 
+
+    // Exclude the 'password' field from each user in the response
     const usersWithoutPassword = users.map(({ password, ...userWithoutPassword }) => userWithoutPassword);
 
     res.status(200).json(usersWithoutPassword);

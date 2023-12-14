@@ -10,10 +10,13 @@ const router = Router();
 
 router.get("/", async (req, res, next) => {
   try {
+    // Extract the name query parameter from the request
     const { name } = req.query;
 
+    // Call the getHosts service with the name parameter for filtering
     const hosts = await getHosts(name);
 
+    // Respond with the filtered or all hosts
     res.status(200).json(hosts);
   } catch (error) {
     next(error);

@@ -29,8 +29,10 @@ const getBookings = async (
 
     return bookings;
   } catch (error) {
+    // Propagate the error to the calling function (likely the route handler)
     throw new Error(`Error fetching bookings: ${error.message}`);
   } finally {
+    // Disconnect PrismaClient if it's defined
     if (prisma) {
       await prisma.$disconnect();
     }

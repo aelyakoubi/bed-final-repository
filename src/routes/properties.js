@@ -22,6 +22,7 @@ router.get("/", async (req, res, next) => {
 });
 
 
+
 router.post("/", auth, async (req, res, next) => {
   try {
     const { userId, title, description, location, pricePerNight, bedroomCount, bathRoomCount, maxGuestCount, hostId, rating } = req.body;

@@ -1,3 +1,4 @@
+// bookingController.js
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -7,8 +8,8 @@ const getBookingById = async (bookingId) => {
     const booking = await prisma.booking.findUnique({
       where: { id: bookingId },
       include: {
-        user: true, 
-        property: true, 
+        user: true, // Include user details
+        property: true, // Include property details
       },
     });
 
@@ -16,6 +17,7 @@ const getBookingById = async (bookingId) => {
   } catch (error) {
     throw new Error(`Error in getBookingById service: ${error.message}`);
   } finally {
+    // Disconnect PrismaClient
     await prisma.$disconnect();
   }
 };

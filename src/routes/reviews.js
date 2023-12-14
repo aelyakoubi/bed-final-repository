@@ -23,6 +23,7 @@ router.post("/", auth, async (req, res, next) => {
 
     const newReview = await createReview({
       rating, comment, propertyId, userId 
+      // Add other properties if needed
     });
 
     res.status(201).json(newReview);
