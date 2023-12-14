@@ -7,8 +7,10 @@ This repository contains starter code for the Bookings project.
 You can clone the repo, install and run the app with the following commands:
 
 ```plaintext
-npm install
-npm run dev
+npm install      (open in the 1e terminal)
+npm run dev     
+
+npx prisma studio (open in the 2e extra terminal, so you will have 2 terminals open)
 ```
 
 ## Starting the App
