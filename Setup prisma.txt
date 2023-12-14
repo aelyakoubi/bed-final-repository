@@ -1,0 +1,16 @@
+** For setup/developer **
+
+npm install  (ik)
+npm run dev
+npm i prisma -D
+npx prisma init
+npx prisma generate
+npx prisma format
+npx prisma db push
+npm run seed  
+npm install @prisma/client
+npx prisma 
+npx prisma studio
+npm run dev
+npx prisma migrate dev --name init
+npx prisma migrate reset --skip-seed
