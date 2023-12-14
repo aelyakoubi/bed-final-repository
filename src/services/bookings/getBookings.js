@@ -7,7 +7,7 @@ const getBookings = async (
   checkoutDate,
   numberOfGuests,
   totalPrice,
-  bookingStatus,
+  bookingStatus
 ) => {
   let prisma;
   try {

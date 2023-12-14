@@ -8,21 +8,18 @@ import auth from "../middleware/auth.js";
 
 const router = Router();
 
-// bookings.js route handler
-// bookings.js route handler
-
 router.get("/", async (req, res, next) => {
   try {
-    const {userId} = req.query;
+    const { userId } = req.query;
 
     const bookings = await getBookings(userId);
 
     // Respond with the found bookings
     res.status(200).json(bookings);
   } catch (error) {
-    // Handle errors
-    console.error('Error in bookings endpoint:', error.message);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+    next(error); // Move this line inside the catch block
   }
 });
 
@@ -40,8 +37,18 @@ router.post("/", auth, async (req, res, next) => {
     } = req.body;
 
     // Validate the presence of required data
-    if (!userId || !propertyId || !checkinDate || !checkoutDate || !numberOfGuests || !totalPrice || !bookingStatus) {
-      return res.status(400).json({ message: "Missing required parameters for creating a booking." });
+    if (
+      !userId ||
+      !propertyId ||
+      !checkinDate ||
+      !checkoutDate ||
+      !numberOfGuests ||
+      !totalPrice ||
+      !bookingStatus
+    ) {
+      return res.status(400).json({
+        message: "Missing required parameters for creating a booking.",
+      });
     }
 
     // Create booking data
@@ -66,7 +73,6 @@ router.post("/", auth, async (req, res, next) => {
   }
 });
 
-
 router.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -81,7 +87,6 @@ router.get("/:id", async (req, res, next) => {
     next(error);
   }
 });
-
 
 router.delete("/:id", auth, async (req, res, next) => {
   try {
@@ -127,7 +132,5 @@ router.put("/:id", auth, async (req, res, next) => {
     next(error);
   }
 });
-
-
 
 export default router;
