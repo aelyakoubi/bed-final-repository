@@ -1,0 +1,34 @@
+Please READ: Concerning the checking of the endpoints
+
+I created other endpoints than the one in the Winc learn area, because they are incorrect. 
+The info is from the json files/database:
+
+.............................................................................................
+/properties?location=New York, NY&pricePerNight=150.75
+
+................................................................................................
+/bookings?userId=c3456789-01de-f012-3456-789abcdef012
+      
+................................................................................................
+/hosts?name=Paul+Green
+
+................................................................................................
+/users?email=johndoe@example.com
+
+................................................................................................
+/hosts?name=Paul+Green        
+
+ALL CHECKED 
+/login: POST
+/users: GET, POST
+/users/:id: GET, PUT, DELETE
+/hosts: GET, POST
+/hosts/:id: GET, PUT, DELETE
+/properties: GET, POST
+/properties/:id: GET, PUT, DELETE
+/amenities: GET, POST
+/amenities/:id: GET, PUT, DELETE
+/bookings: GET, POST
+/bookings/:id: GET, PUT, DELETE
+/reviews: GET, POST
+/reviews/:id: GET, PUT, DELETE
