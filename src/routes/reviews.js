@@ -19,10 +19,13 @@ router.get("/", async (req, res, next) => {
 
 router.post("/", auth, async (req, res, next) => {
   try {
-    const { rating, comment, propertyId, userId  } = req.body;
+    const { rating, comment, propertyId, userId } = req.body;
 
     const newReview = await createReview({
-      rating, comment, propertyId, userId 
+      rating,
+      comment,
+      propertyId,
+      userId,
     });
 
     res.status(201).json(newReview);
@@ -71,7 +74,10 @@ router.put("/:id", auth, async (req, res, next) => {
     const { id } = req.params;
     const { rating, comment, propertyId, userId } = req.body;
     const updatedReview = await updateReviewById(id, {
-      rating, comment, propertyId, userId 
+      rating,
+      comment,
+      propertyId,
+      userId,
     });
 
     if (updatedReview) {

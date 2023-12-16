@@ -445,7 +445,7 @@ components:
         phoneNumber:
           type: string
           example: "123-456-7890"
-        ProfilePicture:
+        profilePicture:
           type: string
           example: "https://example.com/images/johndoe.jpg"
 
@@ -467,7 +467,7 @@ components:
         phoneNumber:
           type: string
           example: "+11234567890"
-        ProfilePicture:
+        profilePicture:
           type: string
           example: "https://example.com/images/johndoe.jpg"
         aboutMe:
@@ -584,7 +584,7 @@ components:
         phoneNumber:
           type: string
           example: "123-456-7890"
-        ProfilePicture:
+        profilePicture:
           type: string
           example: "https://global-uploads.webflow.com/5eecfecbe625d195e35b89f2/624bfb093da7d92733c001c0_Ignacio%20Villafruela%20Rodr%C3%ADguez.jpg"
       required:
@@ -609,7 +609,7 @@ components:
         phoneNumber:
           type: string
           example: "987-654-3210"
-        ProfilePicture:
+        profilePicture:
           type: string
           example: "https://updated-example.com/images/johndoe.jpg"
 
@@ -631,7 +631,7 @@ components:
         phoneNumber:
           type: string
           example: "+11234567890"
-        ProfilePicture:
+        profilePicture:
           type: string
           example: "https://example.com/images/johndoe.jpg"
         aboutMe:
@@ -659,7 +659,7 @@ components:
         phoneNumber:
           type: string
           example: "+11234567890"
-        ProfilePicture:
+        profilePicture:
           type: string
           example: "https://updated-example.com/images/johndoe.jpg"
         aboutMe:
