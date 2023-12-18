@@ -28,7 +28,16 @@ router.post("/", auth, async (req, res, next) => {
       userId,
     });
 
-    res.status(201).json(newReview);
+    if (newReview) {
+      res.status(201).json({
+        message: `Review with id ${newReview.id} successfully added`,
+        review: newReview,
+      });
+    } else {
+      res.status(404).json({
+        message: "Review creation error",
+      });
+    }
   } catch (error) {
     next(error);
   }
