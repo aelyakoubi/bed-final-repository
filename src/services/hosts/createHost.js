@@ -23,10 +23,17 @@ const createHost = async (
         aboutMe,
       },
     });
-
     return host;
   } catch (error) {
-    throw new Error(`Error in createHost service: ${error.message}`);
+    if (
+      error instanceof Error &&
+      error.code === "P2002" &&
+      error.meta?.target?.includes("username")
+    ) {
+      throw new Error(`Username '${username}' is already taken.`);
+    } else {
+      throw new Error(`Error in createHost service: ${error.message}`);
+    }
   } finally {
     await prisma.$disconnect();
   }

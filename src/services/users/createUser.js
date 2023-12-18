@@ -2,7 +2,14 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const createUser = async (username,password,name, email, phoneNumber, profilePicture) => {
+const createUser = async (
+  username,
+  password,
+  name,
+  email,
+  phoneNumber,
+  profilePicture
+) => {
   try {
     const newUser = await prisma.user.create({
       data: {
@@ -16,7 +23,15 @@ const createUser = async (username,password,name, email, phoneNumber, profilePic
     });
     return newUser;
   } catch (error) {
-    throw error;
+    if (
+      error instanceof Error &&
+      error.code === "P2002" &&
+      error.meta?.target?.includes("username")
+    ) {
+      throw new Error(`Username '${username}' is already taken.`);
+    } else {
+      throw error;
+    }
   } finally {
     await prisma.$disconnect();
   }
