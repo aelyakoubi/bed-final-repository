@@ -8,8 +8,8 @@ const createReview = async ({ rating, comment, userId, propertyId }) => {
       data: {
         rating,
         comment,
-        user: { connect: { id: userId } },
-        property: { connect: { id: propertyId } },
+        userId,
+        propertyId
       },
     });
     return review;
