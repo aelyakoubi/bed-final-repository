@@ -14,7 +14,8 @@ const createReview = async ({ rating, comment, userId, propertyId }) => {
     });
     return review;
   } catch (error) {
-    throw error;
+    console.error(`Error creating review: ${error.message}`);
+    throw new Error(`Error creating review: ${error.message}`);
   } finally {
     await prisma.$disconnect();
   }
