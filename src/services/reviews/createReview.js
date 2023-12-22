@@ -5,7 +5,10 @@ const prisma = new PrismaClient();
 const createReview = async ({ rating, comment, userId, propertyId }) => {
   try {
     if (!rating) {
-      throw new Error("Rating is required for creating a review.");
+      res.status(400).json({
+        message: "Rating is required for creating a review.",
+      });
+      return;
     }
 
     const review = await prisma.review.create({
@@ -16,9 +19,15 @@ const createReview = async ({ rating, comment, userId, propertyId }) => {
         propertyId,
       },
     });
-    return review;
+    res.status(201).json({
+      message: "Review successfully added",
+      review,
+    });
   } catch (error) {
     console.error(`Review creation error: ${error.message}`);
+    res.status(500).json({
+      message: "Internal Server Error",
+    });
   } finally {
     await prisma.$disconnect();
   }
