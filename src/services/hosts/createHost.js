@@ -34,7 +34,6 @@ const createHost = async (
       throw new Error(`Username '${username}' is already taken for hosts.`);
     } else {
       console.error(`Host creation error: ${error.message}`);
-      throw new Error(`Error creating host: ${error.message}`);
     }
   } finally {
     await prisma.$disconnect();

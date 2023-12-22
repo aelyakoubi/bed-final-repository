@@ -41,7 +41,7 @@ model Host {
 
 model Property {
   id            String    @id @default(uuid())
-  hostId        String    
+  hostId        String
   title         String
   description   String
   location      String
