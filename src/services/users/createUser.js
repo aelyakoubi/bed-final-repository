@@ -1,3 +1,4 @@
+// createUser.js
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -30,7 +31,8 @@ const createUser = async (
     ) {
       throw new Error(`Username '${username}' is already taken.`);
     } else {
-      throw error;
+      console.error(`User creation error: ${error.message}`);
+      throw new Error(`Error creating user: ${error.message}`);
     }
   } finally {
     await prisma.$disconnect();

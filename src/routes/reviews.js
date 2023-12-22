@@ -19,27 +19,37 @@ router.get("/", async (req, res, next) => {
 
 router.post("/", auth, async (req, res, next) => {
   try {
-    const { rating, comment, propertyId, userId } = req.body;
+    const { rating, comment, userId, propertyId } = req.body;
 
     const newReview = await createReview({
       rating,
       comment,
-      propertyId,
       userId,
+      propertyId,
     });
 
-    if (newReview) {
-      res.status(201).json({
-        message: `Review with id ${newReview.id} successfully added`,
-        review: newReview,
+    res.status(201).json({
+      message: "Review successfully added",
+      review: newReview,
+    });
+  } catch (error) {
+    if (
+      error instanceof Error &&
+      error.message.includes("Custom error creating review")
+    ) {
+      res.status(400).json({
+        message: error.message,
+      });
+    } else if (
+      error instanceof Error &&
+      error.message.includes("Review with the same combination already exists.")
+    ) {
+      res.status(409).json({
+        message: error.message,
       });
     } else {
-      res.status(400).json({
-        message: "Review creation error",
-      });
+      next(error);
     }
-  } catch (error) {
-    next(error);
   }
 });
 

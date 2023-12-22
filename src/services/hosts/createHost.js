@@ -1,3 +1,4 @@
+// createHost.js
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -30,9 +31,10 @@ const createHost = async (
       error.code === "P2002" &&
       error.meta?.target?.includes("username")
     ) {
-      throw new Error(`Username '${username}' is already taken.`);
+      throw new Error(`Username '${username}' is already taken for hosts.`);
     } else {
-      throw new Error(`Error in createHost service: ${error.message}`);
+      console.error(`Host creation error: ${error.message}`);
+      throw new Error(`Error creating host: ${error.message}`);
     }
   } finally {
     await prisma.$disconnect();

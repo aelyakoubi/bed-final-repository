@@ -41,22 +41,10 @@ router.get("/:id", async (req, res, next) => {
 
 router.post("/", auth, async (req, res, next) => {
   try {
-    const {
-      username,
-      password,
-      name,
-      email,
-      phoneNumber,
-      profilePicture,
-    } = req.body;
+    const { username, password, name, email, phoneNumber, profilePicture } = req.body;
 
     const newUser = await createUser(
-      username,
-      password,
-      name,
-      email,
-      phoneNumber,
-      profilePicture
+      username, password, name, email, phoneNumber, profilePicture
     );
 
     if (newUser) {
@@ -70,6 +58,7 @@ router.post("/", auth, async (req, res, next) => {
       });
     }
   } catch (error) {
+    console.error("User creation error:", error);
     next(error);
   }
 });
