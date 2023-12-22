@@ -7,7 +7,13 @@ const deleteBookingById = async (bookingId) => {
     const deletedBooking = await prisma.booking.delete({ where: { id: bookingId } });
     return deletedBooking;
   } catch (error) {
-    throw new Error(`Error in deleteBookingById service: ${error.message}`);
+    if (error instanceof Error && error.code === "P2025") {
+      return null; // Booking with the specified ID was not found
+    } else {
+      throw new Error(`Error in deleting booking: ${error.message}`);
+    }
+  } finally {
+    await prisma.$disconnect();
   }
 };
 

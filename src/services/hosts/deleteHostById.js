@@ -7,7 +7,16 @@ const deleteHostById = async (hostId) => {
     const deletedHost = await prisma.host.delete({ where: { id: hostId } });
     return deletedHost;
   } catch (error) {
-    throw new Error(`Error in deleteHostById service: ${error.message}`);
+    if (
+      error instanceof Error &&
+      error.code === "P2025"
+    ) {
+      return null; // Host / specified ID /not found
+    } else {
+      throw new Error(`Error in deleteHostById service: ${error.message}`);
+    }
+  } finally {
+    await prisma.$disconnect();
   }
 };
 

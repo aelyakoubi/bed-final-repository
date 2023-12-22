@@ -41,8 +41,14 @@ router.get("/:id", async (req, res, next) => {
 
 router.post("/", auth, async (req, res, next) => {
   try {
-    const { username, password, name, email, phoneNumber, profilePicture } =
-      req.body;
+    const {
+      username,
+      password,
+      name,
+      email,
+      phoneNumber,
+      profilePicture,
+    } = req.body;
 
     const newUser = await createUser(
       username,
@@ -59,7 +65,7 @@ router.post("/", auth, async (req, res, next) => {
         user: newUser,
       });
     } else {
-      res.status(404).json({
+      res.status(400).json({
         message: "User creation error",
       });
     }
@@ -67,6 +73,7 @@ router.post("/", auth, async (req, res, next) => {
     next(error);
   }
 });
+
 
 router.delete("/:id", auth, async (req, res, next) => {
   try {

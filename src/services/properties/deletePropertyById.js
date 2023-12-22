@@ -7,7 +7,16 @@ const deletePropertyById = async (propertyId) => {
     const deletedProperty = await prisma.property.delete({ where: { id: propertyId } });
     return deletedProperty;
   } catch (error) {
-    throw new Error(`Error in deletePropertyById service: ${error.message}`);
+    if (
+      error instanceof Error &&
+      error.code === "P2025"
+    ) {
+      return null; // Property / specified ID / not found
+    } else {
+      throw new Error(`Error in deletePropertyById service: ${error.message}`);
+    }
+  } finally {
+    await prisma.$disconnect();
   }
 };
 

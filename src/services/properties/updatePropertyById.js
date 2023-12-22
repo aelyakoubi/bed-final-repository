@@ -10,8 +10,18 @@ const updatePropertyById = async (propertyId, updatedData) => {
     });
     return updatedProperty;
   } catch (error) {
-    throw new Error(`Error in updatePropertyById service: ${error.message}`);
+    if (
+      error instanceof Error &&
+      error.code === "P2025"
+    ) {
+      return null; // Property / specified ID / not found
+    } else {
+      throw new Error(`Error in updatePropertyById service: ${error.message}`);
+    }
+  } finally {
+    await prisma.$disconnect();
   }
 };
 
 export default updatePropertyById;
+

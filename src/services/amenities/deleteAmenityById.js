@@ -7,7 +7,11 @@ const deleteAmenityById = async (amenityId) => {
     const amenity = await prisma.amenity.delete({ where: { id: amenityId } });
     return amenity;
   } catch (error) {
-    throw error;
+    if (error instanceof Error && error.code === "P2025") {
+      return null; // Amenity / specified ID / not found
+    } else {
+      throw new Error(`Error in deleting amenity: ${error.message}`);
+    }
   } finally {
     await prisma.$disconnect();
   }

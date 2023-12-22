@@ -63,7 +63,7 @@ router.post("/", auth, async (req, res, next) => {
         host: newHost,
       });
     } else {
-      res.status(404).json({
+      res.status(400).json({
         message: "Host creation error",
       });
     }
@@ -71,6 +71,7 @@ router.post("/", auth, async (req, res, next) => {
     next(error);
   }
 });
+
 
 router.delete("/:id", auth, async (req, res, next) => {
   try {
