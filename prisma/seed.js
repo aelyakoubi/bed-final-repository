@@ -86,7 +86,7 @@ async function main() {
         update: {},
         create: {
           id: review.id,
-          rating: review.rating || 0,
+          rating: review.rating || null,
           comment: review.comment || "",
           user: {
             connect: { id: review.userId },

@@ -1,4 +1,4 @@
-PS C:\Users\aelya\OneDrive\Bureaublad\bed-final-repository> npm test 
+PS C:\Users\aelya\OneDrive\Bureaublad\bed-final-repository> npm test
 
 > express-bookings@1.0.0 test
 > npm run test-positive && npm run test-negative
@@ -12,116 +12,116 @@ newman
 Bookings API
 
 □ users / {userId}
-└ Get user by ID  
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 394ms]
-  GET http://0.0.0.0:3000/users/e5678901-23f0-1234-5678-9abcdef01234 [200 OK, 475B, 214ms]
-  √  Response status code is 200    
+└ Get user by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 356ms]
+  GET http://0.0.0.0:3000/users/e5678901-23f0-1234-5678-9abcdef01234 [200 OK, 475B, 187ms]
+  √  Response status code is 200
   √  Id should be a non-empty string
 
 └ Update user by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 132ms]
-  PUT http://0.0.0.0:3000/users/e5678901-23f0-1234-5678-9abcdef01234 [200 OK, 319B, 335ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 151ms]
+  PUT http://0.0.0.0:3000/users/e5678901-23f0-1234-5678-9abcdef01234 [200 OK, 319B, 350ms]
   √  Response status code is 200
 
 └ Delete user by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 139ms]
-  DELETE http://0.0.0.0:3000/users/e5678901-23f0-1234-5678-9abcdef01234 [200 OK, 583B, 303ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 136ms]
+  DELETE http://0.0.0.0:3000/users/e5678901-23f0-1234-5678-9abcdef01234 [200 OK, 583B, 300ms]
   √  Response status code is 200
 
 □ users
 └ Get all users
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 147ms]
-  GET http://0.0.0.0:3000/users [200 OK, 1.17kB, 151ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 150ms]
+  GET http://0.0.0.0:3000/users [200 OK, 1.17kB, 153ms]
   √  Response status code is 200
   √  Response is an array
 
 └ Create a new user
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 146ms]
-  POST http://0.0.0.0:3000/users [201 Created, 644B, 196ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 133ms]
+  POST http://0.0.0.0:3000/users [201 Created, 644B, 192ms]
   √  Response status code is 201
 
 □ hosts / {hostId}
 └ Get host by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 144ms]
-  GET http://0.0.0.0:3000/hosts/e2345678-90bc-def0-0123-456789abcdef [200 OK, 575B, 124ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 135ms]
+  GET http://0.0.0.0:3000/hosts/e2345678-90bc-def0-0123-456789abcdef [200 OK, 575B, 125ms]
   √  Response status code is 200
   √  ID is a non-empty string
 
 └ Update host by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 139ms]
-  PUT http://0.0.0.0:3000/hosts/e2345678-90bc-def0-0123-456789abcdef [200 OK, 319B, 215ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 147ms]
+  PUT http://0.0.0.0:3000/hosts/e2345678-90bc-def0-0123-456789abcdef [200 OK, 319B, 216ms]
   √  Response status code is 200
 
 └ Delete host by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 134ms]
-  DELETE http://0.0.0.0:3000/hosts/e2345678-90bc-def0-0123-456789abcdef [200 OK, 619B, 313ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 129ms]
+  DELETE http://0.0.0.0:3000/hosts/e2345678-90bc-def0-0123-456789abcdef [200 OK, 619B, 333ms]
   √  Response status code is 200
 
 □ hosts
 └ Get all hosts
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 139ms]
-  GET http://0.0.0.0:3000/hosts [200 OK, 1.59kB, 122ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 163ms]
+  GET http://0.0.0.0:3000/hosts [200 OK, 1.59kB, 130ms]
   √  Response status code is 200
   √  Response body is an array
 
 └ Create a new host
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 135ms]
-  POST http://0.0.0.0:3000/hosts [201 Created, 655B, 201ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 139ms]
+  POST http://0.0.0.0:3000/hosts [201 Created, 655B, 208ms]
   √  Response status code is 201
 
 □ properties / {propertyId}
 └ Get property by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 134ms]
-  GET http://0.0.0.0:3000/properties/i1234567-89f0-1234-5678-9abcdef01234 [200 OK, 566B, 115ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 128ms]
+  GET http://0.0.0.0:3000/properties/i1234567-89f0-1234-5678-9abcdef01234 [200 OK, 566B, 121ms]
   √  Response status code is 200
   √  Id should be a non-empty string
 
 └ Update property by ID
   POST http://0.0.0.0:3000/login [200 OK, 412B, 133ms]
-  PUT http://0.0.0.0:3000/properties/i1234567-89f0-1234-5678-9abcdef01234 [200 OK, 323B, 450ms]
+  PUT http://0.0.0.0:3000/properties/i1234567-89f0-1234-5678-9abcdef01234 [200 OK, 323B, 214ms]
   √  Response status code is 200
 
 └ Delete property by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 130ms]
-  DELETE http://0.0.0.0:3000/properties/i1234567-89f0-1234-5678-9abcdef01234 [200 OK, 655B, 250ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 145ms]
+  DELETE http://0.0.0.0:3000/properties/i1234567-89f0-1234-5678-9abcdef01234 [200 OK, 655B, 256ms]
   √  Response status code is 200
 
 □ properties
 └ Get all properties
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 134ms]
-  GET http://0.0.0.0:3000/properties [200 OK, 1.24kB, 153ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 137ms]
+  GET http://0.0.0.0:3000/properties [200 OK, 1.24kB, 154ms]
   √  Response status code is 200
   √  Response is an array with at least one element
   √  maxGuestCount is a non-negative integer
 
 └ Create a new property
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 143ms]
-  POST http://0.0.0.0:3000/properties [201 Created, 685B, 199ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 133ms]
+  POST http://0.0.0.0:3000/properties [201 Created, 685B, 202ms]
   √  Response status code is 201
 
 □ amenities / {amenityId}
 └ Get amenity by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 143ms]
-  GET http://0.0.0.0:3000/amenities/u3456789-01rs-tuvw-01cd-ef0123456789 [200 OK, 302B, 133ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 128ms]
+  GET http://0.0.0.0:3000/amenities/u3456789-01rs-tuvw-01cd-ef0123456789 [200 OK, 302B, 131ms]
   √  Response status code is 200
   √  Response has the required fields - id and name
   √  id is a non-empty string
   √  Name should be a non-empty string
 
 └ Update amenity by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 134ms]
-  PUT http://0.0.0.0:3000/amenities/u3456789-01rs-tuvw-01cd-ef0123456789 [200 OK, 322B, 233ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 144ms]
+  PUT http://0.0.0.0:3000/amenities/u3456789-01rs-tuvw-01cd-ef0123456789 [200 OK, 322B, 232ms]
   √  Response status code is 200
 
 └ Delete amenity by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 135ms]
-  DELETE http://0.0.0.0:3000/amenities/u3456789-01rs-tuvw-01cd-ef0123456789 [200 OK, 401B, 197ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 136ms]
+  DELETE http://0.0.0.0:3000/amenities/u3456789-01rs-tuvw-01cd-ef0123456789 [200 OK, 401B, 199ms]
   √  Response status code is 200
 
 □ amenities
 └ Get all amenities
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 127ms]
-  GET http://0.0.0.0:3000/amenities [200 OK, 796B, 130ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 134ms]
+  GET http://0.0.0.0:3000/amenities [200 OK, 796B, 135ms]
   √  Response status code is 200
   √  Response is an array with at least one element
   √  Each element in the response has the required fields - id and name
@@ -129,47 +129,47 @@ Bookings API
   √  Name is a non-empty string
 
 └ Create a new amenity
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 145ms]
-  POST http://0.0.0.0:3000/amenities [201 Created, 351B, 184ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 134ms]
+  POST http://0.0.0.0:3000/amenities [201 Created, 351B, 199ms]
   √  Response status code is 201
 
 □ bookings / {bookingId}
 └ Get booking by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 128ms]
-  GET http://0.0.0.0:3000/bookings/f0123456-78ab-cdef-0123-456789abcdef [200 OK, 1.21kB, 185ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 132ms]
+  GET http://0.0.0.0:3000/bookings/f0123456-78ab-cdef-0123-456789abcdef [200 OK, 1.21kB, 183ms]
   √  Response status code is 200
   √  Id should be a non-empty string
   √  userId is a non-empty string
   √  propertyId should be a non-empty string
 
 └ Update booking by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 128ms]
-  PUT http://0.0.0.0:3000/bookings/f0123456-78ab-cdef-0123-456789abcdef [200 OK, 322B, 215ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 135ms]
+  PUT http://0.0.0.0:3000/bookings/f0123456-78ab-cdef-0123-456789abcdef [200 OK, 322B, 216ms]
   √  Response status code is 200
 
 └ Delete booking by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 130ms]
-  DELETE http://0.0.0.0:3000/bookings/f0123456-78ab-cdef-0123-456789abcdef [200 OK, 625B, 217ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 147ms]
+  DELETE http://0.0.0.0:3000/bookings/f0123456-78ab-cdef-0123-456789abcdef [200 OK, 625B, 203ms]
   √  Response status code is 200
 
 □ bookings
 └ Get all bookings
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 127ms]
-  GET http://0.0.0.0:3000/bookings [200 OK, 529B, 148ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 149ms]
+  GET http://0.0.0.0:3000/bookings [200 OK, 529B, 151ms]
   √  Response status code is 200
   √  Response is an array
   √  Id should be a non-empty string
   √  userId is a non-empty string
 
 └ Create a new booking
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 140ms]
-  POST http://0.0.0.0:3000/bookings [201 Created, 534B, 187ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 133ms]
+  POST http://0.0.0.0:3000/bookings [201 Created, 534B, 203ms]
   √  Response status code is 201
 
 □ reviews / {reviewId}
 └ Get review by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 150ms]
-  GET http://0.0.0.0:3000/reviews/j0123456-78f0-1234-5678-9abcdef01234 [200 OK, 477B, 132ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 125ms]
+  GET http://0.0.0.0:3000/reviews/j0123456-78f0-1234-5678-9abcdef01234 [200 OK, 477B, 131ms]
   √  Response status code is 200
   √  Response has the required fields
   √  Id is a non-empty string
@@ -177,19 +177,19 @@ Bookings API
   √  propertyId is a non-empty string
 
 └ Update review by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 134ms]
-  PUT http://0.0.0.0:3000/reviews/j0123456-78f0-1234-5678-9abcdef01234 [200 OK, 321B, 228ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 136ms]
+  PUT http://0.0.0.0:3000/reviews/j0123456-78f0-1234-5678-9abcdef01234 [200 OK, 321B, 216ms]
   √  Response status code is 200
 
 └ Delete review by ID
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 132ms]
-  DELETE http://0.0.0.0:3000/reviews/j0123456-78f0-1234-5678-9abcdef01234 [200 OK, 534B, 198ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 126ms]
+  DELETE http://0.0.0.0:3000/reviews/j0123456-78f0-1234-5678-9abcdef01234 [200 OK, 534B, 184ms]
   √  Response status code is 200
 
 □ reviews
 └ Get all reviews
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 140ms]
-  GET http://0.0.0.0:3000/reviews [200 OK, 898B, 136ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 138ms]
+  GET http://0.0.0.0:3000/reviews [200 OK, 898B, 130ms]
   √  Response status code is 200
   √  Response is an array with at least one element
   √  Id is a non-empty string
@@ -197,13 +197,13 @@ Bookings API
   √  propertyId is a non-empty string
 
 └ Create a new review
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 134ms]
-  POST http://0.0.0.0:3000/reviews [500 Internal Server Error, 289B, 200ms]
-  1. Response status code is 201
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 137ms]
+  POST http://0.0.0.0:3000/reviews [201 Created, 572B, 198ms]
+  √  Response status code is 201
 
 → User Login
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 131ms]
-  POST http://0.0.0.0:3000/login [200 OK, 412B, 136ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 128ms]
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 135ms]
   √  Response status code is 200
   √  Response has the required field 'token'
   √  Token is a non-empty string
@@ -219,21 +219,182 @@ Bookings API
 ├─────────────────────────┼────────────────────┼────────────────────┤
 │      prerequest-scripts │                 31 │                  0 │
 ├─────────────────────────┼────────────────────┼────────────────────┤
-│              assertions │                 61 │                  1 │
+│              assertions │                 61 │                  0 │
 ├─────────────────────────┴────────────────────┴────────────────────┤
-│ total run duration: 13.9s                                         │
+│ total run duration: 13.8s                                         │
 ├───────────────────────────────────────────────────────────────────┤
-│ total data received: 16.82kB (approx)                             │
+│ total data received: 17.11kB (approx)                             │
 ├───────────────────────────────────────────────────────────────────┤
-│ average response time: 172ms [min: 115ms, max: 450ms, s.d.: 66ms] │
+│ average response time: 168ms [min: 121ms, max: 356ms, s.d.: 54ms] │
 └───────────────────────────────────────────────────────────────────┘
 
-  #  failure                                   detail
+> express-bookings@1.0.0 test-negative
+> newman run "./postman/collections/Bookings API Negative.json" -e "./postman/environments/Local.postman_environment.json"
 
- 1.  AssertionError                            Response status code is 201
-                                               expected response to have status code 201 but got 500
-                                               at assertion:0 in test-script
-                                               inside "reviews / Create a new review"
+newman
+
+Bookings API Negative
+
+□ users / {userId}
+└ Get user by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 251ms]
+  GET http://0.0.0.0:3000/users/:userId [404 Not Found, 286B, 132ms]
+  √  Response status code is 404
+
+└ Update user by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 127ms]
+  PUT http://0.0.0.0:3000/users/d4567890-12 [404 Not Found, 290B, 169ms]
+  √  Response status code is 404
+
+└ Delete user by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 131ms]
+  DELETE http://0.0.0.0:3000/users/d4567890-12ef-01 [404 Not Found, 295B, 154ms]
+  √  Response status code is 404
+
+□ users
+└ Create a new user
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 133ms]
+  POST http://0.0.0.0:3000/users [400 Bad Request, 277B, 119ms]
+  √  Response status code is 400
+
+□ hosts / {hostId}
+└ Get host by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 139ms]
+  GET http://0.0.0.0:3000/hosts/:hostId [404 Not Found, 286B, 41ms]
+  √  Response status code is 404
+
+└ Update host by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 133ms]
+  PUT http://0.0.0.0:3000/hosts/:hostId [404 Not Found, 286B, 169ms]
+  √  Response status code is 404
+
+└ Delete host by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 129ms]
+  DELETE http://0.0.0.0:3000/hosts/:hostId [404 Not Found, 286B, 156ms]
+  √  Response status code is 404
+
+□ hosts
+└ Create a new host
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 136ms]
+  POST http://0.0.0.0:3000/hosts [400 Bad Request, 277B, 117ms]
+  √  Response status code is 400
+
+□ properties / {propertyId}
+└ Get property by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 135ms]
+  GET http://0.0.0.0:3000/properties/h0123456-78f0-1234-5678-9abcdef01234 [404 Not Found, 319B, 36ms]
+  √  Response status code is 404
+
+└ Update property by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 146ms]
+  PUT http://0.0.0.0:3000/properties/h0123456-78f0-1234-5678-9abcdef01234 [404 Not Found, 319B, 167ms]
+  √  Response status code is 404
+
+└ Delete property by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 126ms]
+  DELETE http://0.0.0.0:3000/properties/h0123456-78f0-1234-5678-9abcdef01234 [404 Not Found, 319B, 164ms]
+  √  Response status code is 404
+
+□ properties
+└ Create a new property
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 129ms]
+  POST http://0.0.0.0:3000/properties [400 Bad Request, 280B, 10ms]
+  √  Response status code is 400
+
+□ amenities / {amenityId}
+└ Get amenity by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 145ms]
+  GET http://0.0.0.0:3000/amenities/t2345678-90qr-stu [404 Not Found, 299B, 133ms]
+  √  Response status code is 404
+
+└ Update amenity by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 129ms]
+  PUT http://0.0.0.0:3000/amenities/t2345678-90qr-st [404 Not Found, 298B, 169ms]
+  √  Response status code is 404
+
+└ Delete amenity by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 146ms]
+  DELETE http://0.0.0.0:3000/amenities/bc-def012345678 [404 Not Found, 297B, 153ms]
+  √  Response status code is 404
+
+□ amenities
+└ Create a new amenity
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 129ms]
+  POST http://0.0.0.0:3000/amenities [400 Bad Request, 379B, 99ms]
+  √  Response status code is 400
+
+□ bookings / {bookingId}
+└ Get booking by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 132ms]
+  GET http://0.0.0.0:3000/bookings/f0123456-78ab-cdef-0123-456789abcdef [404 Not Found, 318B, 135ms]
+  √  Response status code is 404
+
+└ Update booking by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 136ms]
+  PUT http://0.0.0.0:3000/bookings/f0123456-78ab-cdef-0123-456789abcdef [404 Not Found, 318B, 153ms]
+  √  Response status code is 404
+
+└ Delete booking by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 150ms]
+  DELETE http://0.0.0.0:3000/bookings/f0123456-78ab-cdef-0123-456789abcdef [404 Not Found, 318B, 167ms]
+  √  Response status code is 404
+
+□ bookings
+└ Create a new booking
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 130ms]
+  POST http://0.0.0.0:3000/bookings [400 Bad Request, 309B, 9ms]
+  √  Response status code is 400
+
+□ reviews / {reviewId}
+└ Get review by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 142ms]
+  GET http://0.0.0.0:3000/reviews/j0123456-78f0-1234-5678-9abcdef01234 [404 Not Found, 317B, 136ms]
+  √  Response status code is 404
+
+└ Update review by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 134ms]
+  PUT http://0.0.0.0:3000/reviews/j0123456-78f0-1234-5678-9abcdef01234 [404 Not Found, 317B, 167ms]
+  √  Response status code is 404
+
+└ Delete review by ID
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 141ms]
+  DELETE http://0.0.0.0:3000/reviews/j0123456-78f0-1234-5678-9abcdef01234 [404 Not Found, 317B, 150ms]
+  √  Response status code is 404
+
+□ reviews
+└ Create a new review
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 130ms]
+  POST http://0.0.0.0:3000/reviews [400 Bad Request, 456B, 117ms]
+  √  Response status code is 400
+
+→ User Login
+  POST http://0.0.0.0:3000/login [200 OK, 412B, 132ms]
+  POST http://0.0.0.0:3000/login [401 Unauthorized, 278B, 132ms]
+  √  Response status code is 401
+
+┌─────────────────────────┬───────────────────┬───────────────────┐
+│                         │          executed │            failed │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│              iterations │                 1 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│                requests │                50 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│            test-scripts │                50 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│      prerequest-scripts │                25 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│              assertions │                25 │                 0 │
+├─────────────────────────┴───────────────────┴───────────────────┤
+│ total run duration: 9.2s                                        │
+├─────────────────────────────────────────────────────────────────┤
+│ total data received: 6.07kB (approx)                            │
+├─────────────────────────────────────────────────────────────────┤
+│ average response time: 132ms [min: 9ms, max: 251ms, s.d.: 38ms] │
+└─────────────────────────────────────────────────────────────────┘
 PS C:\Users\aelya\OneDrive\Bureaublad\bed-final-repository>
+
+
+
+
 
 

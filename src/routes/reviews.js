@@ -28,28 +28,19 @@ router.post("/", auth, async (req, res, next) => {
       propertyId,
     });
 
-    res.status(201).json({
-      message: "Review successfully added",
-      review: newReview,
-    });
-  } catch (error) {
-    if (
-      error instanceof Error &&
-      error.message.includes("Custom error creating review")
-    ) {
+    if (newReview.error) {
       res.status(400).json({
-        message: error.message,
-      });
-    } else if (
-      error instanceof Error &&
-      error.message.includes("Review with the same combination already exists.")
-    ) {
-      res.status(409).json({
-        message: error.message,
+        message: newReview.error,
       });
     } else {
-      next(error);
+      res.status(201).json({
+        message: "Review successfully added",
+        review: newReview,
+      });
     }
+  } catch (error) {
+    console.error(error);
+    next(error);
   }
 });
 
