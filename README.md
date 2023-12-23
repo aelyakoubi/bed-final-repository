@@ -6,19 +6,18 @@ This repository contains starter code for the Bookings project.
 
 You can clone the repo, install and run the app with the following commands:
 
-```plaintext
+````plaintext
 <<<<<<< HEAD
+
 npm install      (open in the 1e terminal)
-npm run dev     
+npm install har-validator@latest (if you do not have the node_modules)
+npm install uuid@latest          (if you do not have the node_modules)
+npm install
+npm run dev
 
 npx prisma studio (open in the 2e extra terminal, so you will have 2 terminals open)
 =======
-npm install      (open in de 1e terminal)
-npm run dev     
-
-npx prisma studio (open in the seccond extra terminal)
->>>>>>> 33d935554b8c07c28112ce6fc51a1e7795fb9348
-```
+>>>
 
 ## Starting the App
 
@@ -30,7 +29,7 @@ To start the app, follow these steps:
 ```plaintext
 AUTH_SECRET_KEY=your_secret_key_here
 SENTRY_DSN=your_sentry_dsn_here
-```
+````
 
 ## Running tests
 
