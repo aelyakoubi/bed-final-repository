@@ -69,4 +69,4 @@ After this, you will see the test results prompted to the terminal. If you have 
 
 Important: When dealing with JSON data, please, make sure that you restart the server with `npm run dev` every time you execute tests! This is important because some tests will remove data via DELETE endpoints and that operation cannot be repeated with the same ID again and again.
 
-``` Thanks and credits to WincAcademy in Amsterdam, The Netherlands ```
+``` Thanks and credits to WincAcademy in Amsterdam, The Netherlands! ```
