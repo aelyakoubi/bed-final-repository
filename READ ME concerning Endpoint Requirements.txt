@@ -18,6 +18,9 @@ The info is from the json files/database:
 ................................................................................................
 /hosts?name=Paul+Green        
 
+
+Requirements:
+
 ALL CHECKED 
 /login: POST
 /users: GET, POST
