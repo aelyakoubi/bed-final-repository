@@ -71,4 +71,6 @@ Important: When dealing with JSON data, please, make sure that you restart the s
 
 ``` Thanks and credits to WincAcademy in Amsterdam, The Netherlands! ```
 ![image](https://github.com/aelyakoubi/bed-final-repository/assets/115151631/18ed8d47-0415-4b3b-b6a4-dc1764abbd1b)
+https://github.com/aelyakoubi/bed-final-repository/assets/115151631/0aa59875-4b47-40ea-8f7d-da4754b41877
 ![image](https://github.com/aelyakoubi/bed-final-repository/assets/115151631/63819e39-edab-4123-9859-d0a2fd73c527)
+
