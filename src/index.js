@@ -30,7 +30,7 @@ app.use(Sentry.Handlers.requestHandler());
 app.use(Sentry.Handlers.tracingHandler());
 
 app.get("/", (req, res) => {
-  res.send("Hello, This is the project bedfinal_bookingsite_Api of Ahmed el Yakoubi. To render the data from and to the database to test it, you need to create an account on planetscal and follow the steps..");
+  res.send("Hello, This is the project bedfinal_bookingsite_Api of Ahmed el Yakoubi. To render the data from and to the database to test it, you need to create an account on planetscale and follow the steps..");
 });
 
 app.use(express.json());
