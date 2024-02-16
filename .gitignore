@@ -1,4 +1,4 @@
 node_modules
 .vscode
 .env
-prisma/migrations/20231120101848_init/migration.sql
+
