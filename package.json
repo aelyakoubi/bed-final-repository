@@ -18,9 +18,9 @@
     "@sentry/node": "^7.64.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "har-validator": "^5.1.5",
+    "har-validator": "latest",
     "jsonwebtoken": "^9.0.1",
-    "uuid": "^9.0.1",
+    "uuid": "latest",
     "winston": "^3.10.0"
   },
   "devDependencies": {
