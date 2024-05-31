@@ -62,11 +62,8 @@ To run the tests, perform the following steps:
 4. Run the following command
 
 ```plaintext
-npm run ![positive test - newman](https://github.com/aelyakoubi/bed-final-repository/assets/115151631/450fa6fd-d24b-4f51-baad-baa1bb62586a)
-![positive test - newman](https://github.com/aelyakoubi/bed-final-repository/assets/115151631/f517285d-2199-45a2-b31b-127fb539cf95)
-test
-```![positive test - newman](https://github.com/aelyakoubi/bed-final-repository/assets/115151631/9f7e444b-c102-4f26-82bc-841738e44549)
-![negative test - newman](https://github.com/aelyakoubi/bed-final-repository/assets/115151631/8ba18806-a3a7-4f69-95f7-ad3e6dc0fc5d)
+npm run test
+```
 
 
 After this, you will see the test results prompted to the terminal. If you have a look at the `package.json` file, you will see that it executes the collection stored in the `postman` folder of the repo root.
