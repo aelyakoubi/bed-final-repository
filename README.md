@@ -65,7 +65,9 @@ To run the tests, perform the following steps:
 npm run ![positive test - newman](https://github.com/aelyakoubi/bed-final-repository/assets/115151631/450fa6fd-d24b-4f51-baad-baa1bb62586a)
 ![positive test - newman](https://github.com/aelyakoubi/bed-final-repository/assets/115151631/f517285d-2199-45a2-b31b-127fb539cf95)
 test
-```
+```![positive test - newman](https://github.com/aelyakoubi/bed-final-repository/assets/115151631/9f7e444b-c102-4f26-82bc-841738e44549)
+![negative test - newman](https://github.com/aelyakoubi/bed-final-repository/assets/115151631/8ba18806-a3a7-4f69-95f7-ad3e6dc0fc5d)
+
 
 After this, you will see the test results prompted to the terminal. If you have a look at the `package.json` file, you will see that it executes the collection stored in the `postman` folder of the repo root.
 
@@ -78,4 +80,4 @@ Important: When dealing with JSON data, please, make sure that you restart the s
 ![bed-final-repository_image03](https://github.com/aelyakoubi/bed-final-repository/assets/115151631/a06f2b4d-0315-4a38-ab23-2500158be4dd)
 ![image](https://github.com/aelyakoubi/bed-final-repository/assets/115151631/63819e39-edab-4123-9859-d0a2fd73c527)
 
->>>>>>> c63ff6d42f9939d1fc197e19d1f0606d761d7ad4
+
