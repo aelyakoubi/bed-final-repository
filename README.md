@@ -12,6 +12,8 @@ You can clone the repo, install and run the app with the following commands:
 npm install      (open in the 1e terminal)
 npm install har-validator@latest (if necessary)
 npm install uuid@latest          (if necessary)
+or use / npm audit fix
+
 npm install
 npm run dev
 
