@@ -1,3 +1,8 @@
+![organogram_bedfinal](https://github.com/user-attachments/assets/0a016ed3-758c-4b42-be75-f27057f52843)
+
+
+
+
 # BED Final Project Starter
 
 This repository contains starter code for the Bookings project.
